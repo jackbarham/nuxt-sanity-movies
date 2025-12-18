@@ -4,7 +4,6 @@ export type Movie = {
   slug: { current: string }
   overview?: any[]
   releaseDate?: string
-  posterFullUrl?: string | null
   posterUrl?: string | null
   popularity?: number
   castMembers?: {
