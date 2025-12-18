@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     enabled: true 
   },
   css: ['./app/assets/css/main.css'],
-  modules: [],
+  modules: ['@nuxt/image'],
   vite: {
     plugins: [
       tailwindcss(),
@@ -20,6 +20,13 @@ export default defineNuxtConfig({
         dataset: process.env.NUXT_SANITY_DATASET,
         apiVersion: process.env.NUXT_SANITY_API_VERSION || '2024-01-01',
       }
+    }
+  },
+  image: {
+    quality: 85,
+    sanity: {
+      projectId: process.env.NUXT_SANITY_PROJECT_ID!,
+      dataset: process.env.NUXT_SANITY_DATASET!,
     }
   },
   app: {
