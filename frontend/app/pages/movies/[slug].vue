@@ -4,8 +4,8 @@
 
     <section>
       <h2>Poster</h2>
-      <!-- <img v-if="movie.posterFullUrl" :src="movie.posterFullUrl" :alt="movie.title" /> -->
-      <NuxtImg
+      <img v-if="movie.posterFullUrl" :src="movie.posterFullUrl" :alt="movie.title" />
+      <!-- <NuxtImg
         v-if="movie.posterUrl"
         :src="movie.posterUrl"
         :alt="movie.title"
@@ -13,7 +13,7 @@
         sizes="300 sm:500 md:800 lg:1200"
         fit="outside"
         class="w-full"
-      />
+      /> -->
     </section>
 
     <section>
