@@ -15,5 +15,5 @@ type Person = {
 }
 
 const query = groq`*[_type == "person"]{name}`
-const { data: actors } = await useSanityQuery<Movie[]>(query)
+const { data: actors } = await useSanityQuery<Person[]>(query)
 </script>
