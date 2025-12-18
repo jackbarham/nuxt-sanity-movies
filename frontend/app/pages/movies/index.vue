@@ -12,11 +12,7 @@
 </template>
 
 <script setup lang="ts">
-type Movie = {
-  _id: string
-  title: string
-  slug: { current: string }
-}
+import type { Movie } from '~/types/movie'
 
 const query = groq`*[_type == "movie"]{_id, title, slug}`
 const { data: movies } = await useSanityQuery<Movie[]>(query)
