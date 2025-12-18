@@ -12,7 +12,7 @@
       <h2>Movies</h2>
       <ul v-if="actor.movies?.length">
         <li v-for="movie in actor.movies" :key="movie._id">
-          <NuxtLink :to="`/movies/${movie.slug.current}`" class="text-blue-500">
+          <NuxtLink :to="`/movies/${movie.slug.current}`" class="text-blue-700">
             {{ movie.title }}
           </NuxtLink>
           <span v-if="movie.characterName"> as {{ movie.characterName }}</span>

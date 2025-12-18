@@ -3,7 +3,7 @@
     <h1>Crew</h1>
     <ul>
       <li v-for="member in crew" :key="member._id">
-        <NuxtLink :to="`/crew/${member.slug.current}`" class="text-blue-500">
+        <NuxtLink :to="`/crew/${member.slug.current}`" class="text-blue-700">
           {{ member.name }}
         </NuxtLink>
       </li>

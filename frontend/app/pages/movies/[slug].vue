@@ -28,7 +28,7 @@
       <h2>Cast</h2>
       <ul v-if="movie.castMembers?.length">
         <li v-for="cast in movie.castMembers" :key="cast._key">
-          <NuxtLink :to="`/actors/${cast.person?.slug?.current}`" class="text-blue-500">
+          <NuxtLink :to="`/actors/${cast.person?.slug?.current}`" class="text-blue-700">
             {{ cast.person?.name }}
           </NuxtLink>
           as {{ cast.characterName }}
@@ -41,7 +41,7 @@
       <h2>Crew</h2>
       <ul v-if="movie.crewMembers?.length">
         <li v-for="crew in movie.crewMembers" :key="crew._key">
-          <NuxtLink :to="`/crew/${crew.person?.slug?.current}`" class="text-blue-500">
+          <NuxtLink :to="`/crew/${crew.person?.slug?.current}`" class="text-blue-700">
             {{ crew.person?.name }}
           </NuxtLink>
           — {{ crew.job }} ({{ crew.department }})

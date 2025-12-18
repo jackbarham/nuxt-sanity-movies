@@ -5,7 +5,7 @@
     <section>
       <h2>Movie</h2>
       <p v-if="screening.movie">
-        <NuxtLink :to="`/movies/${screening.movie.slug?.current}`" class="text-blue-500">
+        <NuxtLink :to="`/movies/${screening.movie.slug?.current}`" class="text-blue-700">
           {{ screening.movie.title }}
         </NuxtLink>
       </p>
@@ -31,7 +31,7 @@
     <section v-if="screening.infoUrl">
       <h2>More Info</h2>
       <p>
-        <a :href="screening.infoUrl" target="_blank" rel="noopener noreferrer" class="text-blue-500">
+        <a :href="screening.infoUrl" target="_blank" rel="noopener noreferrer" class="text-blue-700">
           {{ screening.infoUrl }}
         </a>
       </p>
@@ -40,7 +40,7 @@
     <section v-if="screening.ticketUrl">
       <h2>Ticket</h2>
       <p>
-        <a :href="screening.ticketUrl" target="_blank" rel="noopener noreferrer" class="text-blue-500">
+        <a :href="screening.ticketUrl" target="_blank" rel="noopener noreferrer" class="text-blue-700">
           Download Ticket (PDF)
         </a>
       </p>

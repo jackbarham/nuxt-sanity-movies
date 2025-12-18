@@ -3,7 +3,7 @@
     <h1>Screenings</h1>
     <ul>
       <li v-for="screening in screenings" :key="screening._id">
-        <NuxtLink :to="`/screenings/${screening._id}`" class="text-blue-500">
+        <NuxtLink :to="`/screenings/${screening._id}`" class="text-blue-700">
           {{ screening.title }}
         </NuxtLink>
       </li>
