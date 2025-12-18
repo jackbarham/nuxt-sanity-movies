@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/sanity": "2.0.0",
+    "@sanity/client": "^7.13.2",
     "@tailwindcss/vite": "^4.1.18",
     "nuxt": "^4.2.2",
     "tailwindcss": "^4.1.18",

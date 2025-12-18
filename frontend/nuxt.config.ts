@@ -6,22 +6,20 @@ export default defineNuxtConfig({
     enabled: true 
   },
   css: ['./app/assets/css/main.css'],
-  modules: [
-    '@nuxtjs/sanity'
-  ],
-  sanity: {
-    projectId: process.env.NUXT_SANITY_PROJECT_ID,
-    dataset: process.env.NUXT_SANITY_DATASET,
-    apiVersion: process.env.NUXT_SANITY_API_VERSION
-  },
-    vite: {
+  modules: [],
+  vite: {
     plugins: [
       tailwindcss(),
     ],
   },
   runtimeConfig: {
     public: {
-      appTitle: 'Nuxt Sanity Movies'
+      appTitle: 'Nuxt Sanity Movies',
+      sanity: {
+        projectId: process.env.NUXT_SANITY_PROJECT_ID,
+        dataset: process.env.NUXT_SANITY_DATASET,
+        apiVersion: process.env.NUXT_SANITY_API_VERSION || '2024-01-01',
+      }
     }
   },
   app: {
