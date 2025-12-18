@@ -2,8 +2,10 @@
   <div>
     <h1>Actors</h1>
     <ul>
-      <li v-for="actor in actors" :key="actor.name">
-        {{ actor.name }}
+      <li v-for="actor in actors" :key="actor._id">
+        <NuxtLink :to="`/actors/${actor.slug.current}`">
+          {{ actor.name }}
+        </NuxtLink>
       </li>
     </ul>
   </div>
@@ -11,9 +13,11 @@
 
 <script setup lang="ts">
 type Person = {
+  _id: string
   name: string
+  slug: { current: string }
 }
 
-const query = groq`*[_type == "person"]{name}`
+const query = groq`*[_type == "person"]{_id, name, slug}`
 const { data: actors } = await useSanityQuery<Person[]>(query)
 </script>
