@@ -28,7 +28,10 @@
       <h2>Cast</h2>
       <ul v-if="movie.castMembers?.length">
         <li v-for="cast in movie.castMembers" :key="cast._key">
-          {{ cast.person?.name }} as {{ cast.characterName }}
+          <NuxtLink :to="`/actors/${cast.person?.slug?.current}`" class="text-blue-500">
+            {{ cast.person?.name }}
+          </NuxtLink>
+          as {{ cast.characterName }}
         </li>
       </ul>
       <p v-else>No cast members listed.</p>
@@ -38,7 +41,10 @@
       <h2>Crew</h2>
       <ul v-if="movie.crewMembers?.length">
         <li v-for="crew in movie.crewMembers" :key="crew._key">
-          {{ crew.person?.name }} — {{ crew.job }} ({{ crew.department }})
+          <NuxtLink :to="`/crew/${crew.person?.slug?.current}`" class="text-blue-500">
+            {{ crew.person?.name }}
+          </NuxtLink>
+          — {{ crew.job }} ({{ crew.department }})
         </li>
       </ul>
       <p v-else>No crew members listed.</p>
@@ -66,13 +72,13 @@ const query = groq`*[_type == "movie" && slug.current == $slug][0]{
   castMembers[]{
     _key,
     characterName,
-    person->{ name }
+    person->{ name, slug }
   },
   crewMembers[]{
     _key,
     department,
     job,
-    person->{ name }
+    person->{ name, slug }
   }
 }`
 
