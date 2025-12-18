@@ -3,7 +3,7 @@
     <h1>Movies</h1>
     <ul>
       <li v-for="movie in movies" :key="movie._id">
-        <NuxtLink :to="`/movies/${movie.slug.current}`">
+        <NuxtLink :to="`/movies/${movie.slug.current}`" class="text-blue-500">
           {{ movie.title }}
         </NuxtLink>
       </li>

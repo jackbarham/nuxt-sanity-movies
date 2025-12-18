@@ -3,7 +3,7 @@
     <h1>Actors</h1>
     <ul>
       <li v-for="actor in actors" :key="actor._id">
-        <NuxtLink :to="`/actors/${actor.slug.current}`">
+        <NuxtLink :to="`/actors/${actor.slug.current}`" class="text-blue-500">
           {{ actor.name }}
         </NuxtLink>
       </li>
