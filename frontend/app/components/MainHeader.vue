@@ -97,6 +97,10 @@ const pages = [
     title: 'Actors',
     url: '/actors'
   },
+  {
+    title: 'Screenings',
+    url: '/screenings'
+  },
 ]
 
 // Mobile menu state
