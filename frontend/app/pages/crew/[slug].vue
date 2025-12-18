@@ -1,28 +1,28 @@
 <template>
-  <div v-if="actor">
-    <h1>{{ actor.name }}</h1>
+  <div v-if="member">
+    <h1>{{ member.name }}</h1>
 
     <section>
       <h2>Photo</h2>
-      <img v-if="actor.imageUrl" :src="actor.imageUrl" :alt="actor.name" width="300" />
+      <img v-if="member.imageUrl" :src="member.imageUrl" :alt="member.name" width="300" />
       <p v-else>No photo available.</p>
     </section>
 
     <section>
       <h2>Movies</h2>
-      <ul v-if="actor.movies?.length">
-        <li v-for="movie in actor.movies" :key="movie._id">
+      <ul v-if="member.movies?.length">
+        <li v-for="movie in member.movies" :key="movie._id">
           <NuxtLink :to="`/movies/${movie.slug.current}`" class="text-blue-500">
             {{ movie.title }}
           </NuxtLink>
-          <span v-if="movie.characterName"> as {{ movie.characterName }}</span>
+          <span v-if="movie.job"> — {{ movie.job }} ({{ movie.department }})</span>
         </li>
       </ul>
       <p v-else>No movies listed.</p>
     </section>
   </div>
   <div v-else>
-    <p>Actor not found.</p>
+    <p>Crew member not found.</p>
   </div>
 </template>
 
@@ -30,7 +30,7 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-type Actor = {
+type CrewMember = {
   _id: string
   name: string
   slug: { current: string }
@@ -39,7 +39,8 @@ type Actor = {
     _id: string
     title: string
     slug: { current: string }
-    characterName: string | null
+    job: string | null
+    department: string | null
   }[]
 }
 
@@ -52,9 +53,10 @@ const query = groq`*[_type == "person" && slug.current == $slug][0]{
     _id,
     title,
     slug,
-    "characterName": castMembers[person._ref == ^.^._id][0].characterName
+    "job": crewMembers[person._ref == ^.^._id][0].job,
+    "department": crewMembers[person._ref == ^.^._id][0].department
   }
 }`
 
-const { data: actor } = await useSanityQuery<Actor>(query, { slug })
+const { data: member } = await useSanityQuery<CrewMember>(query, { slug })
 </script>
