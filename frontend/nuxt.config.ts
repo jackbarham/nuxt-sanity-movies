@@ -19,6 +19,10 @@ export default defineNuxtConfig({
         projectId: process.env.NUXT_SANITY_PROJECT_ID,
         dataset: process.env.NUXT_SANITY_DATASET,
         apiVersion: process.env.NUXT_SANITY_API_VERSION || '2024-01-01',
+      },
+      sanityVisualEditing: {
+        studioUrl: process.env.NUXT_SANITY_STUDIO_URL || 'http://localhost:3333',
+        token: process.env.NUXT_SANITY_API_READ_TOKEN || '',
       }
     }
   },
